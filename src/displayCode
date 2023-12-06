@@ -1,0 +1,29 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class Ihm {
+    public static void main(String[] args) {
+        BufferedReader br;
+        String s;
+        int linesCounter = 0;
+        Path fileSource = Paths.get("lescoureurs.txt");
+        try {
+            br = Files.newBufferedReader(fileSource, Charset.defaultCharset());
+            while ((s = br.readLine()) != null) {
+                String substring = s.substring(s.indexOf("'"), s.indexOf(")"));
+                if (linesCounter < 500) {
+                    System.out.println("M " + substring.replaceAll("'", ""));
+                    linesCounter++;
+                } else {
+                    System.out.println("F " + substring.replaceAll("'", ""));
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
