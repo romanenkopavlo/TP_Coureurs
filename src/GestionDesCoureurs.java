@@ -6,8 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 public class GestionDesCoureurs {
@@ -16,7 +16,7 @@ public class GestionDesCoureurs {
         return coureurs;
     }
 
-    public void setCoureurs() throws IOException {
+    public GestionDesCoureurs() throws IOException {
         Random rd = new Random();
         LocalTime time;
         Path fileSource = Paths.get("lescoureurs.txt");
@@ -34,7 +34,7 @@ public class GestionDesCoureurs {
         bw = Files.newBufferedWriter(fileSourceFinal, Charset.defaultCharset());
 
         while ((s = bd.readLine()) != null) {
-            time = LocalTime.of(1,0);
+            time = LocalTime.of(1, 0);
             String substring = s.substring(s.indexOf("'"), s.length() - 2);
             String [] split = substring.split(",");
             time = time.plusSeconds(rd.nextInt(2, 7200));
@@ -67,4 +67,30 @@ public class GestionDesCoureurs {
         bw.close();
         bd.close();
     }
+
+    public void sortByNameIncrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getPrenom));
+    }
+    public void sortBySurnameIncrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getNom));
+    }
+    public void sortByCategoryIncrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getCategorie));
+    }
+    public void sortByTimeIncrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getDuree));
+    }
+    public void sortByNameDecrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getPrenom).reversed());
+    }
+    public void sortBySurnameDecrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getNom).reversed());
+    }
+    public void sortByCategoryDecrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getCategorie).reversed());
+    }
+    public void sortByTimeDecrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getDuree));
+    }
+
 }

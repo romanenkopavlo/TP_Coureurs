@@ -27,6 +27,8 @@ public class Personne {
         this.prenom = prenom;
     }
 
+    public Personne() {
+    }
     public Personne(Genre genre, String nom, String prenom) {
         this.setGender(genre);
         this.setNom(nom);

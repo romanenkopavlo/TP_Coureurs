@@ -20,6 +20,8 @@ public class Coureur extends Personne {
         this.duree = duree;
     }
 
+    public Coureur() {
+    }
     public Coureur(Genre genre, String nom, String prenom, Categorie categorie, LocalTime time) {
         super(genre, nom, prenom);
         this.setCategorie(categorie);
