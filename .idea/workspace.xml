@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba90d557-7fec-49d5-886b-167e69546365" name="Changes" comment="Le TP 5">
-      <change afterPath="$PROJECT_DIR$/src/clavier/In.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/finalBuffer/lescoureursfinal.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/filesOld/course.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lescoureursfinal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lescoureursfinal.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lescoureurs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lescoureursfinal.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GestionDesCoureurs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionDesCoureurs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ihm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ihm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/displayCode" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/finalBuffer/lescoureursfinal.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,31 +31,40 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2ZAEi2wORAhcIgpAUhL0pAXZkgK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;T:/Java/TP_Coureurs/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Unnamed.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/JavaProjects/TP_Coureurs/src/filesOld",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProjects\TP_Coureurs\src\filesOld" />
       <recent name="T:\Java\TP_Coureurs\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaProjects\TP_Coureurs\src\filesOld" />
       <recent name="T:\Java\TP_Coureurs" />
       <recent name="T:\Java\TP_Coureurs\src" />
     </key>
@@ -67,6 +78,13 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,6 +96,12 @@
       <workItem from="1701856607765" duration="17892000" />
       <workItem from="1701933155825" duration="1020000" />
       <workItem from="1701934313249" duration="697000" />
+      <workItem from="1701977084477" duration="617000" />
+      <workItem from="1701977819275" duration="8334000" />
+      <workItem from="1701989309752" duration="7000" />
+      <workItem from="1701989392575" duration="20000" />
+      <workItem from="1701989552964" duration="53000" />
+      <workItem from="1702072625404" duration="20900000" />
     </task>
     <task id="LOCAL-00001" summary="Le TP 5">
       <created>1701879907793</created>
