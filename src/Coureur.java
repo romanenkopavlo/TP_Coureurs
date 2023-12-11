@@ -3,6 +3,15 @@ import java.time.LocalTime;
 public class Coureur extends Personne {
     private Categorie categorie;
     private LocalTime duree;
+    private int categorieID;
+
+    public int getCategorieID() {
+        return categorieID;
+    }
+
+    public void setCategorieID(int categorieID) {
+        this.categorieID = categorieID;
+    }
 
     public Categorie getCategorie() {
         return categorie;

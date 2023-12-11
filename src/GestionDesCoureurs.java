@@ -64,6 +64,16 @@ public class GestionDesCoureurs {
         bd.close();
     }
 
+    public void addCategoryID() {
+        for (int i = 0; i < coureurs.size(); i++) {
+            if (coureurs.get(i).getCategorie() == Categorie.ELITE_1) {
+                coureurs.get(i).setCategorieID(20);
+            } else if (coureurs.get(i).getCategorie() == Categorie.ELITE_2) {
+                coureurs.get(i).setCategorieID(25);
+            }
+        }
+    }
+
     public void sortByNameIncrease() {
         coureurs.sort(Comparator.comparing(Coureur::getPrenom));
     }

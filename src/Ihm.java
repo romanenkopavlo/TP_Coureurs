@@ -20,8 +20,8 @@ public class Ihm {
     static Random rd = new Random();
     static int genderChoice, categoryChoice;
     static int counter = 0;
-    static String sprinterToDelete;
-    static String sprinterToModify;
+    static int sprinterToDelete;
+    static int sprinterToModify;
     static boolean isSortedIncreasing = false;
     static boolean isSortedDecreasing = false;
     private static void lister () {
@@ -274,20 +274,18 @@ public class Ihm {
                         break;
                     case 9:
                         while (!isDeleted) {
-                            System.out.print("Choisissez un coureur qui vous voulez supprimer en entrant son nom: ");
-                            sprinterToDelete = In.readString();
-                            assert sprinterToDelete != null;
-                            sprinterToDelete = formattedSurnameName(sprinterToDelete);
+                            System.out.print("Choisissez un coureur qui vous voulez supprimer en entrant son numero: ");
+                            sprinterToDelete = In.readInteger();
 
                             for (int i = 0; i < gestion.coureurs.size() && !isDeleted; i++) {
-                                if (Objects.equals(gestion.coureurs.get(i).getNom(), sprinterToDelete)) {
+                                if (i == sprinterToDelete - 1) {
                                     System.out.println("Le coureur " +  gestion.coureurs.get(i).getNom() + " " + gestion.coureurs.get(i).getPrenom() + " a ete supprime.");
                                     gestion.coureurs.remove(i);
                                     isDeleted = true;
                                 }
                             }
                             if (!isDeleted) {
-                                System.out.println("Le coureur " + sprinterToDelete + " n'a pas ete trouve.");
+                                System.out.println("Le coureur N° " + sprinterToDelete + " n'a pas ete trouve.");
                                 System.out.println("Le coureur n'a pas ete supprime. Veuillez reessayer.");
                             }
                         }
@@ -295,12 +293,10 @@ public class Ihm {
                         break;
                     case 10:
                         while (!isModified) {
-                            System.out.print("Choisissez un coureur qui vous voulez modifier en entrant son nom: ");
-                            sprinterToModify = In.readString();
-                            assert sprinterToModify != null;
-                            sprinterToModify = formattedSurnameName(sprinterToModify);
+                            System.out.print("Choisissez un coureur qui vous voulez modifier en entrant son numero: ");
+                            sprinterToModify = In.readInteger();
                             for (int i = 0; i < gestion.coureurs.size() && !isModified; i++) {
-                                if (Objects.equals(gestion.coureurs.get(i).getNom(), sprinterToModify)) {
+                                if (i == sprinterToModify - 1) {
                                     System.out.println("... Modification de coureur " + gestion.coureurs.get(i).getNom() + " " + gestion.coureurs.get(i).getPrenom() + " ...");
 
                                     System.out.println("Saisissez un nouveau genre de ce coureur...");
