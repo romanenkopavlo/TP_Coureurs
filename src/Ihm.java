@@ -8,7 +8,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 import java.util.Random;
 
 public class Ihm {
@@ -20,12 +19,36 @@ public class Ihm {
     static Random rd = new Random();
     static int genderChoice, categoryChoice;
     static int counter = 0;
+    static int position = 1;
     static int sprinterToDelete;
     static int sprinterToModify;
     static boolean isSortedIncreasing = false;
     static boolean isSortedDecreasing = false;
-    private static void lister () {
-        int position = 1;
+    static boolean isDisplayCategoryChosen = false;
+
+    private static void displaySprinters(Coureur coureur) {
+        for(int i = 0; i < (4 - Integer.toString(position).length()); i++) {
+            System.out.print(" ");
+        }
+        System.out.print(position++ + "   " + coureur.getGender() + "  ");
+        if(position <= 10) {
+            System.out.print("  ");
+        }
+        System.out.print(coureur.getNom())  ;
+        for (int i = 0; i < 20 - coureur.getNom().length(); i++) {
+            System.out.print(" ");
+        }
+        System.out.print(coureur.getPrenom());
+        for (int i = 0; i < 20 - coureur.getPrenom().length(); i++) {
+            System.out.print(" ");
+        }
+
+        System.out.print(coureur.getCategorie());
+        for (int i = 0; i < 20 - coureur.getCategorie().toString().length(); i++) {
+            System.out.print(" ");
+        }
+    }
+    private static void lister() {
         System.out.println("==============================   Les coureurs sont   ==========================");
         System.out.print("            Nom" );
         for (int i = 0; i < 11 - "Nom".length(); i++) {
@@ -45,48 +68,38 @@ public class Ihm {
         } else {
             System.out.println("     Temps");
         }
-        for (Coureur coureur : gestion.getCoureurs()) {
-            for(int i = 0; i < (4 - Integer.toString(position).length()); i++) {
-                System.out.print(" ");
-            }
-            System.out.print(position++ + "   " + coureur.getGender() + "  ");
-            if(position <= 10) {
-                System.out.print("  ");
-            }
-            System.out.print(coureur.getNom())  ;
-            for (int i = 0; i < 20 - coureur.getNom().length(); i++) {
-                System.out.print(" ");
-            }
-            System.out.print(coureur.getPrenom());
-            for (int i = 0; i < 20 - coureur.getPrenom().length(); i++) {
-                System.out.print(" ");
-            }
-
-            System.out.print(coureur.getCategorie());
-            for (int i = 0; i < 20 - coureur.getCategorie().toString().length(); i++) {
-                System.out.print(" ");
-            }
-
-            if (isSortedIncreasing || isSortedDecreasing) {
-                if (isSortedIncreasing) {
-                    if (counter >= 1) {
-                        printTimeDifference(coureur.getDuree(), gestion.coureurs.get(0).getDuree());
-                    }
-                    else {
-                        System.out.println(DateTimeFormatter.ISO_TIME.format(coureur.getDuree()) + "\t\t" + "00:00:00");
-                    }
-                } else {
-                    if (counter != gestion.coureurs.size()) {
-                        printTimeDifference(coureur.getDuree(), gestion.coureurs.get(gestion.coureurs.size() - 1).getDuree());
-                    } else {
-                        System.out.println(DateTimeFormatter.ISO_TIME.format(gestion.coureurs.get(gestion.coureurs.size() - 1).getDuree()) + " \t\t" + "00:00:00");
-                    }
+        if (isDisplayCategoryChosen) {
+            for (Coureur coureur : gestion.getCoureurs()) {
+                if (coureur.getCategorie() == category) {
+                    displaySprinters(coureur);
+                    System.out.println(DateTimeFormatter.ISO_TIME.format(coureur.getDuree()));
                 }
-                counter++;
-            } else {
-                System.out.println(DateTimeFormatter.ISO_TIME.format(coureur.getDuree()));
+            }
+        } else {
+            for (Coureur coureur : gestion.getCoureurs()) {
+                displaySprinters(coureur);
+                if (isSortedIncreasing || isSortedDecreasing) {
+                    if (isSortedIncreasing) {
+                        if (counter >= 1) {
+                            printTimeDifference(coureur.getDuree(), gestion.coureurs.get(0).getDuree());
+                        }
+                        else {
+                            System.out.println(DateTimeFormatter.ISO_TIME.format(coureur.getDuree()) + "\t\t" + "00:00:00");
+                        }
+                    } else {
+                        if (counter != gestion.coureurs.size()) {
+                            printTimeDifference(coureur.getDuree(), gestion.coureurs.get(gestion.coureurs.size() - 1).getDuree());
+                        } else {
+                            System.out.println(DateTimeFormatter.ISO_TIME.format(gestion.coureurs.get(gestion.coureurs.size() - 1).getDuree()) + " \t\t" + "00:00:00");
+                        }
+                    }
+                    counter++;
+                } else {
+                    System.out.println(DateTimeFormatter.ISO_TIME.format(coureur.getDuree()));
+                }
             }
         }
+        position = 1;
     }
     public static void chooseGender(int genderChoice) {
         switch (genderChoice) {
@@ -155,6 +168,14 @@ public class Ihm {
             case 7:
                 gestion.sortByTimeDecrease();
                 break;
+            case 8:
+                gestion.addCategoryID();
+                gestion.sortByCategoryIncrease();
+                break;
+            case 9:
+                gestion.addCategoryID();
+                gestion.sortByCategoryDecrease();
+                break;
         }
     }
     public static void hideOffset() {
@@ -179,7 +200,7 @@ public class Ihm {
             int choice = 0;
             int status = 0;
             gestion = new GestionDesCoureurs();
-            while (choice != 12) {
+            while (choice != 15) {
                 boolean isDeleted = false;
                 boolean isModified = false;
                 time = LocalTime.of(1, 0);
@@ -193,15 +214,19 @@ public class Ihm {
                 System.out.println("Tapez 5 pour afficher par ordre alphabétique de prenom decroissant");
                 System.out.println("Tapez 6 pour afficher par ordre de classement croissant");
                 System.out.println("Tapez 7 pour afficher par ordre de classement decroissant");
-                System.out.println("Tapez 8 pour ajouter un coureur");
-                System.out.println("Tapez 9 pour supprimer un coureur");
-                System.out.println("Tapez 10 pour modifier un coureur");
-                System.out.println("Tapez 11 pour sauvegarder la liste des coureurs");
-                System.out.println("Tapez 12 pour arreter votre session");
+                System.out.println("Tapez 8 pour afficher par ordre de categorie croissant");
+                System.out.println("Tapez 9 pour afficher par ordre de categorie decroissant");
+                System.out.println("Tapez 10 pour afficher par categorie choisie");
+                System.out.println("Tapez 11 pour ajouter un coureur");
+                System.out.println("Tapez 12 pour supprimer un coureur");
+                System.out.println("Tapez 13 pour modifier un coureur");
+                System.out.println("Tapez 14 pour sauvegarder la liste des coureurs");
+                System.out.println("Tapez 15 pour arreter votre session");
                 System.out.print("Votre choix: ");
                 choice = In.readInteger();
                 switch (choice) {
                     case 1:
+                        recognizeStatusOfSorting(status);
                         lister();
                         break;
                     case 2:
@@ -243,6 +268,31 @@ public class Ihm {
                         status = 7;
                         break;
                     case 8:
+                        gestion.addCategoryID();
+                        gestion.sortByCategoryIncrease();
+                        hideOffset();
+                        lister();
+                        status = 8;
+                        break;
+                    case 9:
+                        gestion.addCategoryID();
+                        gestion.sortByCategoryDecrease();
+                        hideOffset();
+                        lister();
+                        status = 9;
+                        break;
+                    case 10:
+                        isDisplayCategoryChosen = true;
+                        System.out.println("Choisissez categorie");
+                        System.out.println("1 - M1; 2 - M2; 3 - M3; 4 - M4; 5 - M5; 6 - M6; 7 - M7; 8 - M8; 9 - M9; 10 - ELITE_1; 11 - ELITE_2");
+                        System.out.print("Votre choix: ");
+                        categoryChoice = In.readInteger();
+                        chooseCategory(categoryChoice);
+                        lister();
+                        isDisplayCategoryChosen = false;
+                        recognizeStatusOfSorting(status);
+                        break;
+                    case 11:
                         System.out.println("Entrez les donnees pour votre coureur");
 
                         System.out.println("Le genre de votre coureur...");
@@ -272,7 +322,7 @@ public class Ihm {
                         System.out.println("Le coureur " + surname + " " + name + " a ete cree.");
                         recognizeStatusOfSorting(status);
                         break;
-                    case 9:
+                    case 12:
                         while (!isDeleted) {
                             System.out.print("Choisissez un coureur qui vous voulez supprimer en entrant son numero: ");
                             sprinterToDelete = In.readInteger();
@@ -291,7 +341,7 @@ public class Ihm {
                         }
                         recognizeStatusOfSorting(status);
                         break;
-                    case 10:
+                    case 13:
                         while (!isModified) {
                             System.out.print("Choisissez un coureur qui vous voulez modifier en entrant son numero: ");
                             sprinterToModify = In.readInteger();
@@ -339,7 +389,7 @@ public class Ihm {
                         }
                         recognizeStatusOfSorting(status);
                         break;
-                    case 11:
+                    case 14:
                         Path courseSource = Paths.get("course.txt");
                         BufferedWriter bw;
                         bw = Files.newBufferedWriter(courseSource, Charset.defaultCharset());
@@ -350,7 +400,7 @@ public class Ihm {
                         bw.close();
                         System.out.println("Votre fichier " + courseSource.getFileName() + " a ete sauvegarde.");
                         break;
-                    case 12:
+                    case 15:
                         System.out.print("Votre session est arretee.");
                         break;
                 }

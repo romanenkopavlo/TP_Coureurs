@@ -61,6 +61,7 @@ public class GestionDesCoureurs {
 
             coureurs.add(new Coureur(gender, split[1].trim(), split[2].trim(), category, time));
         }
+        addCategoryID();
         bd.close();
     }
 
@@ -70,6 +71,24 @@ public class GestionDesCoureurs {
                 coureurs.get(i).setCategorieID(20);
             } else if (coureurs.get(i).getCategorie() == Categorie.ELITE_2) {
                 coureurs.get(i).setCategorieID(25);
+            } else if (coureurs.get(i).getCategorie() == Categorie.M1) {
+                coureurs.get(i).setCategorieID(30);
+            } else if (coureurs.get(i).getCategorie() == Categorie.M2) {
+                coureurs.get(i).setCategorieID(35);
+            } else if (coureurs.get(i).getCategorie() == Categorie.M3) {
+                coureurs.get(i).setCategorieID(40);
+            } else if (coureurs.get(i).getCategorie() == Categorie.M4) {
+                coureurs.get(i).setCategorieID(45);
+            } else if (coureurs.get(i).getCategorie() == Categorie.M5) {
+                coureurs.get(i).setCategorieID(50);
+            } else if (coureurs.get(i).getCategorie() == Categorie.M6) {
+                coureurs.get(i).setCategorieID(55);
+            } else if (coureurs.get(i).getCategorie() == Categorie.M7) {
+                coureurs.get(i).setCategorieID(60);
+            } else if (coureurs.get(i).getCategorie() == Categorie.M8) {
+                coureurs.get(i).setCategorieID(65);
+            } else if (coureurs.get(i).getCategorie() == Categorie.M9) {
+                coureurs.get(i).setCategorieID(70);
             }
         }
     }
@@ -91,5 +110,11 @@ public class GestionDesCoureurs {
     }
     public void sortByTimeDecrease() {
         coureurs.sort(Comparator.comparing(Coureur::getDuree).reversed());
+    }
+    public void sortByCategoryIncrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getCategorieID));
+    }
+    public void sortByCategoryDecrease() {
+        coureurs.sort(Comparator.comparing(Coureur::getCategorieID).reversed());
     }
 }

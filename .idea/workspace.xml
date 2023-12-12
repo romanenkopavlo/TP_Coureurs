@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ba90d557-7fec-49d5-886b-167e69546365" name="Changes" comment="Le TP 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Coureur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Coureur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GestionDesCoureurs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionDesCoureurs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ihm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ihm.java" afterDir="false" />
     </list>
@@ -97,7 +96,7 @@
       <workItem from="1701989392575" duration="20000" />
       <workItem from="1701989552964" duration="53000" />
       <workItem from="1702072625404" duration="20900000" />
-      <workItem from="1702299266829" duration="4927000" />
+      <workItem from="1702415907579" duration="5636000" />
     </task>
     <task id="LOCAL-00001" summary="Le TP 5">
       <created>1701879907793</created>
