@@ -169,11 +169,9 @@ public class Ihm {
                 gestion.sortByTimeDecrease();
                 break;
             case 8:
-                gestion.addCategoryID();
                 gestion.sortByCategoryIncrease();
                 break;
             case 9:
-                gestion.addCategoryID();
                 gestion.sortByCategoryDecrease();
                 break;
         }
@@ -268,14 +266,12 @@ public class Ihm {
                         status = 7;
                         break;
                     case 8:
-                        gestion.addCategoryID();
                         gestion.sortByCategoryIncrease();
                         hideOffset();
                         lister();
                         status = 8;
                         break;
                     case 9:
-                        gestion.addCategoryID();
                         gestion.sortByCategoryDecrease();
                         hideOffset();
                         lister();
@@ -318,6 +314,7 @@ public class Ihm {
                         chooseCategory(categoryChoice);
 
                         Coureur coureur = new Coureur(gender, surname, name, category, time);
+                        gestion.addCategoryIDOneSprinter(coureur);
                         gestion.coureurs.add(coureur);
                         System.out.println("Le coureur " + surname + " " + name + " a ete cree.");
                         recognizeStatusOfSorting(status);
@@ -405,7 +402,6 @@ public class Ihm {
                         break;
                 }
             }
-
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }

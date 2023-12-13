@@ -92,6 +92,31 @@ public class GestionDesCoureurs {
             }
         }
     }
+    public void addCategoryIDOneSprinter(Coureur coureur) {
+        if (coureur.getCategorie() == Categorie.ELITE_1) {
+            coureur.setCategorieID(20);
+        } else if (coureur.getCategorie() == Categorie.ELITE_2) {
+            coureur.setCategorieID(25);
+        } else if (coureur.getCategorie() == Categorie.M1) {
+            coureur.setCategorieID(30);
+        } else if (coureur.getCategorie() == Categorie.M2) {
+            coureur.setCategorieID(35);
+        } else if (coureur.getCategorie() == Categorie.M3) {
+            coureur.setCategorieID(40);
+        } else if (coureur.getCategorie() == Categorie.M4) {
+            coureur.setCategorieID(45);
+        } else if (coureur.getCategorie() == Categorie.M5) {
+            coureur.setCategorieID(50);
+        } else if (coureur.getCategorie() == Categorie.M6) {
+            coureur.setCategorieID(55);
+        } else if (coureur.getCategorie() == Categorie.M7) {
+            coureur.setCategorieID(60);
+        } else if (coureur.getCategorie() == Categorie.M8) {
+            coureur.setCategorieID(65);
+        } else if (coureur.getCategorie() == Categorie.M9) {
+            coureur.setCategorieID(70);
+        }
+    }
 
     public void sortByNameIncrease() {
         coureurs.sort(Comparator.comparing(Coureur::getPrenom));
